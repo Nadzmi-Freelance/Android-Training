@@ -5,30 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.seladanghijau.androidtutorial.Register">
+    tools:context="com.seladanghijau.androidtutorial_sqlite.Profile">
 
-    <EditText
-        android:id="@+id/etEmail"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
+    <TextView
+        android:id="@+id/tvId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <EditText
-        android:id="@+id/etName"
-        android:hint="Name"
-        android:inputType="text"
+    <TextView
+        android:id="@+id/tvName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <EditText
-        android:id="@+id/etPassword"
-        android:hint="Password"
-        android:inputType="textPassword"
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tvPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/btnRegister"
-        android:text="Register Account"
+        android:id="@+id/btnLogout"
+        android:text="Logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>

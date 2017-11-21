@@ -40,19 +40,19 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
             try {
                 JSONObject info = new JSONObject(sharedPreferences.getString("user-info", ""));
 
-                tvID.setText(info.getString("id"));
-                tvName.setText(info.getString("name"));
-                tvEmail.setText(info.getString("email"));
-                tvPassword.setText(info.getString("password"));
+                tvID.setText("ID: " + info.getString("id"));
+                tvName.setText("Name: " + info.getString("name"));
+                tvEmail.setText("Email: " + info.getString("email"));
+                tvPassword.setText("Password: " + info.getString("password"));
             } catch (Exception e) { e.printStackTrace(); }
         } else {
             try {
                 JSONObject info = new JSONObject(getIntent().getStringExtra("info"));
 
-                tvID.setText(info.getString("id"));
-                tvName.setText(info.getString("name"));
-                tvEmail.setText(info.getString("email"));
-                tvPassword.setText(info.getString("password"));
+                tvID.setText("ID: " + info.getString("id"));
+                tvName.setText("Name: " + info.getString("name"));
+                tvEmail.setText("Email: " + info.getString("email"));
+                tvPassword.setText("Password: " + info.getString("password"));
             } catch (Exception e) { e.printStackTrace(); }
         }
     }

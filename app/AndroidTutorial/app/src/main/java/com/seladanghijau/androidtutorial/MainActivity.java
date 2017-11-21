@@ -74,13 +74,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please wait...");
-        progressDialog.setCancelable(false);
-
         switch(v.getId()) {
             case R.id.btnRegister:
-                startActivity(new Intent(this, Register.class));
+                Intent registerPage = new Intent(this, Register.class);
+
+                registerPage.putExtra("email", etEmail.getText().toString());
+                registerPage.putExtra("password", etPassword.getText().toString());
+
+                startActivity(registerPage);
                 break;
             case R.id.btnLogin:
                 final String email, password;
@@ -90,6 +91,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 email = etEmail.getText().toString();
                 password = etPassword.getText().toString();
+
+                progressDialog = new ProgressDialog(this);
+                progressDialog.setMessage("Please wait...");
+                progressDialog.setCancelable(false);
 
                 try {
                     StringRequest loginRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {

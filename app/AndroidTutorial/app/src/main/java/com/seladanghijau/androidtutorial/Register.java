@@ -44,6 +44,12 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
         // process
         requestQueue = Volley.newRequestQueue(this);
+
+        String email = getIntent().getStringExtra("email");
+        String password = getIntent().getStringExtra("password");
+
+        etEmail.setText(email);
+        etPassword.setText(password);
     }
 
     @Override

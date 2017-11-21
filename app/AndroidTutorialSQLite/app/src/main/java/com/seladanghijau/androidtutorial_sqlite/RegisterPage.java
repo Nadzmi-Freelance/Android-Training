@@ -46,6 +46,7 @@ public class RegisterPage extends AppCompatActivity implements View.OnClickListe
                 password = etPassword.getText().toString();
 
                 new Register(this, name, email, password).execute();
+                finish();
                 break;
         }
     }
@@ -55,7 +56,7 @@ class Register extends AsyncTask<Void, Void, Boolean> {
     private MyDB db;
     private ProgressDialog progressDialog;
     private String name, email, password;
-    private Toast registerSuccess, registerFail;
+    private Toast msgSuccess, msgFail;
 
     public Register(Context context, String name, String email, String password) {
         this.name = name;
@@ -67,8 +68,8 @@ class Register extends AsyncTask<Void, Void, Boolean> {
         progressDialog = new ProgressDialog(context);
         progressDialog.setMessage("Registering...");
 
-        registerSuccess = Toast.makeText(context, "Registered successfully.", Toast.LENGTH_LONG);
-        registerFail = Toast.makeText(context, "Registration failed.", Toast.LENGTH_LONG);
+        msgSuccess = Toast.makeText(context, "Registered successfully.", Toast.LENGTH_LONG);
+        msgFail = Toast.makeText(context, "Registration failed.", Toast.LENGTH_LONG);
     }
 
     @Override
@@ -79,9 +80,9 @@ class Register extends AsyncTask<Void, Void, Boolean> {
     @Override
     protected void onPostExecute(Boolean registered) {
         if(registered)
-            registerSuccess.show();
+            msgSuccess.show();
         else
-            registerFail.show();
+            msgFail.show();
 
         if(progressDialog.isShowing())
             progressDialog.dismiss();
